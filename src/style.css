@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --color-ink: #1d211c;
+  --color-paper: #f5f2eb;
+  --color-moss: #394b3c;
+  --color-coral: #d66b50;
+  --color-sand: #e8dfd1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f5f2eb;
+  color: #1d211c;
+  font-family: 'DM Sans', sans-serif;
+}
+
+::selection {
+  background: #d66b50;
+  color: #fff;
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
