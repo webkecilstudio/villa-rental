@@ -3,16 +3,39 @@
 Rental villa premium yang menghadirkan pengalaman menginap di Bali dengan pendekatan visual editorial, tenang, dan modern. Pengunjung dapat menjelajahi villa unggulan, destinasi populer, fasilitas, pengalaman eksklusif, testimoni tamu, serta mengirimkan permintaan
 ketersediaan melalui booking search bar.
 
-## Fitur
-
-- Hero section dengan CTA Explore Villas
-- Form pencarian ketersediaan villa
-- Katalog featured villas dengan lokasi, kapasitas, fasilitas, dan harga per malam
-- Destinasi populer: Ubud, Canggu, Seminyak, Uluwatu, dan Nusa Dua
-- Experiences & amenities seperti private pool, spa, floating breakfast, dan airport pickup
-- Section brand story, keunggulan layanan, testimonial, dan Instagram gallery
-- Newsletter subscription dengan feedback setelah submit
-- Responsive layout untuk mobile, tablet, dan desktop
-- Icon interface menggunakan `oh-vue-icons`
-
 ![Tampilan Senja Villas Rental](public/doc-full.png)
+
+#### Next Plan Features
+
+1. Villa Listing <br>
+   Daftar villa, filter harga, lokasi, kapasitas, fasilitas, dan sorting.
+
+2. Villa Detail <br>
+   Foto gallery, deskripsi, fasilitas, lokasi, aturan menginap, harga, dan ketersediaan.
+3. Booking & Checkout <br>
+   Tanggal menginap, jumlah tamu, rincian harga, data pemesan, dan pembayaran.
+
+4. Booking Confirmation<br>
+   Kode reservasi, detail pemesanan, status pembayaran, dan informasi check-in.
+
+5. Admin Dashboard<br>
+   Manajemen villa, ketersediaan, reservasi, harga, pelanggan, dan laporan pendapatan. Fitur di dalamnya:
+   CRUD villa dan kategori properti.
+
+   - Upload dan manajemen foto villa.
+
+   - Pengaturan harga weekday dan weekend.
+
+   - Pengaturan seasonal pricing.
+
+   - Kalender ketersediaan villa.
+
+   - Manajemen reservasi.
+
+   - Manajemen pembayaran.
+
+   - Manajemen pelanggan.
+
+   - Promo dan discount codes.
+
+   - Dashboard laporan pendapatan.

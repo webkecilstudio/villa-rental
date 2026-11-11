@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { localImage } from '@/utils/image'
+
 const destinations = [
-  { name: 'Ubud', note: 'Jungle & soul', image: 'photo-1537996194471-e657df975ab4' },
-  { name: 'Canggu', note: 'Surf & slow days', image: 'photo-1539367628448-4bc5c9d171c8' },
-  { name: 'Seminyak', note: 'Style & sunsets', image: 'photo-1537225228614-56cc3556d7ed' },
-  { name: 'Uluwatu', note: 'Cliffs & ocean', image: 'photo-1516690561799-46d8f74f9abf' },
-  { name: 'Nusa Dua', note: 'Calm & considered', image: 'photo-1540541338287-41700207dee6' },
+  { name: 'Ubud', note: 'Jungle & soul', image: 'photo-1537996194471-e657df975ab4.jpg' },
+  { name: 'Canggu', note: 'Surf & slow days', image: 'photo-1539367628448-4bc5c9d171c8.jpg' },
+  { name: 'Seminyak', note: 'Style & sunsets', image: 'photo-1537225228614-56cc3556d7ed.jpg' },
+  { name: 'Uluwatu', note: 'Cliffs & ocean', image: 'photo-1516690561799-46d8f74f9abf.jpg' },
+  { name: 'Nusa Dua', note: 'Calm & considered', image: 'photo-1540541338287-41700207dee6.jpg' },
 ]
 </script>
 
@@ -27,7 +29,7 @@ const destinations = [
           :class="{ 'col-span-2 lg:col-span-1': destination.name === 'Ubud' }"
           ><div class="relative aspect-[0.76] overflow-hidden bg-moss">
             <img
-              :src="`https://images.unsplash.com/${destination.image}?auto=format&fit=crop&w=800&q=85`"
+              :src="localImage(destination.image)"
               :alt="destination.name"
               class="h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
             />

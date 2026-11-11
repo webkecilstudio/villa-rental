@@ -1,9 +1,15 @@
+<script setup lang="ts">
+import { localImage } from '@/utils/image'
+
+const heroImage = localImage('photo-1600607687939-ce8a6c25118c.jpg')
+</script>
+
 <template>
   <section
     class="relative mx-auto min-h-[680px] max-w-[1440px] overflow-hidden px-5 pb-20 pt-5 lg:px-10 lg:pt-8"
   >
     <img
-      src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90"
+      :src="heroImage"
       alt="Senja villa overlooking a tropical landscape"
       class="absolute inset-0 h-full w-full object-cover"
     />

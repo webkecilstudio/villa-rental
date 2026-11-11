@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import webkecilStudioLogo from '../webkecilstudio.png'
+</script>
+
 <template>
   <footer class="bg-ink px-5 py-12 text-paper lg:px-10 lg:py-16">
     <div class="mx-auto max-w-[1440px]">
@@ -41,6 +45,31 @@
       >
         <span>© 2026 Senja Villas</span>
         <div class="flex gap-5"><span>Bali, Indonesia</span><span>Made with intention</span></div>
+      </div>
+      <div
+        class="mt-8 flex flex-col gap-4 border-t border-paper/10 pt-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            :src="webkecilStudioLogo"
+            alt="Webkecil Studio"
+            class="h-10 w-10 rounded-full object-cover"
+          />
+          <div>
+            <p class="text-xs font-semibold text-paper">Made by Webkecil Studio</p>
+            <p class="mt-1 text-[11px] text-paper/45">Digital experience & web design</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-paper/65">
+          <a href="tel:+6282313153539" class="transition hover:text-coral">+62 823-1315-3539</a>
+          <a
+            href="https://webkecilstudio.github.io/catalogue/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 transition hover:text-coral"
+            >View catalogue <v-icon name="hi-external-link" scale=".75"
+          /></a>
+        </div>
       </div>
     </div>
   </footer>

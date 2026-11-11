@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { localImage } from '@/utils/image'
+
 const images = [
-  'photo-1600607687920-4e2a09cf159d',
-  'photo-1505881502353-a1986add3762',
-  'photo-1537996194471-e657df975ab4',
-  'photo-1540541338287-41700207dee6',
-  'photo-1600566753086-00f18fb6b3ea',
+  'photo-1600607687920-4e2a09cf159d.jpg',
+  'photo-1505881502353-a1986add3762.jpg',
+  'photo-1537996194471-e657df975ab4.jpg',
+  'photo-1540541338287-41700207dee6.jpg',
+  'photo-1600566753086-00f18fb6b3ea.jpg',
 ]
 </script>
 
@@ -29,7 +31,7 @@ const images = [
         class="group aspect-square overflow-hidden bg-sand"
         :class="{ 'hidden sm:block': index === 4 }"
         ><img
-          :src="`https://images.unsplash.com/${image}?auto=format&fit=crop&w=700&q=85`"
+          :src="localImage(image)"
           alt="Senja Villas on Instagram"
           class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
       /></a>

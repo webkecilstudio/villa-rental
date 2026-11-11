@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { localImage } from '@/utils/image'
+
 const amenities = [
-  { name: 'Private pool', icon: 'fa-swimming-pool', image: 'photo-1540555700478-4be289fbecef' },
-  { name: 'Floating breakfast', icon: 'hi-sparkles', image: 'photo-1533669955142-6a73332af4db' },
-  { name: 'In-villa spa', icon: 'fa-spa', image: 'photo-1600334089648-b0d9d3028eb2' },
-  { name: 'Airport pickup', icon: 'fa-plane', image: 'photo-1544620347-c4fd4a3d5957' },
+  { name: 'Private pool', icon: 'fa-swimming-pool', image: 'photo-1540555700478-4be289fbecef.jpg' },
+  { name: 'Floating breakfast', icon: 'hi-sparkles', image: 'photo-1533669955142-6a73332af4db.jpg' },
+  { name: 'In-villa spa', icon: 'fa-spa', image: 'photo-1600334089648-b0d9d3028eb2.jpg' },
+  { name: 'Airport pickup', icon: 'fa-plane', image: 'photo-1544620347-c4fd4a3d5957.jpg' },
 ]
 </script>
 
@@ -24,7 +26,7 @@ const amenities = [
         class="group relative aspect-[0.9] overflow-hidden bg-sand"
       >
         <img
-          :src="`https://images.unsplash.com/${amenity.image}?auto=format&fit=crop&w=800&q=85`"
+          :src="localImage(amenity.image)"
           :alt="amenity.name"
           class="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
         />

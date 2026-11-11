@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { localImage } from '@/utils/image'
+
 const villas = [
   {
     name: 'Villa Senja',
     location: 'Ubud, Bali',
     guests: '6 guests',
     price: '$320',
-    image: 'photo-1600607687920-4e2a09cf159d',
+    image: 'photo-1600607687920-4e2a09cf159d.jpg',
     features: '3 bedrooms · Private pool',
   },
   {
@@ -13,7 +15,7 @@ const villas = [
     location: 'Canggu, Bali',
     guests: '4 guests',
     price: '$245',
-    image: 'photo-1600566753190-17f0baa2a6c3',
+    image: 'photo-1600566753190-17f0baa2a6c3.jpg',
     features: '2 bedrooms · Garden view',
   },
   {
@@ -21,14 +23,14 @@ const villas = [
     location: 'Nusa Dua, Bali',
     guests: '8 guests',
     price: '$560',
-    image: 'photo-1600607687939-ce8a6c25118c',
+    image: 'photo-1600607687939-ce8a6c25118c.jpg',
     features: '4 bedrooms · Ocean view',
   },
 ]
 </script>
 
 <template>
-  <section id="villas" class="mx-auto max-w-[1440px] px-5 py-20 lg:px-10 lg:py-28">
+  <section id="villas" class="featured-villas mx-auto max-w-[1440px] px-5 py-20 lg:px-10 lg:py-28">
     <div class="mb-10 flex items-end justify-between">
       <div>
         <p class="eyebrow mb-3 text-coral">01 / Stay beautifully</p>
@@ -44,7 +46,7 @@ const villas = [
       <article v-for="villa in villas" :key="villa.name" class="group">
         <div class="relative aspect-[0.9] overflow-hidden bg-sand">
           <img
-            :src="`https://images.unsplash.com/${villa.image}?auto=format&fit=crop&w=1000&q=85`"
+            :src="localImage(villa.image)"
             :alt="villa.name"
             class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
           /><span

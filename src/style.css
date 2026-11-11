@@ -34,3 +34,157 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-drift {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-section.is-visible > div > :is(h1, h2, p, a, form, blockquote) {
+  animation: section-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-section.is-visible > div > :is(h1, h2) {
+  animation-delay: 120ms;
+}
+
+.reveal-section.is-visible > div > :is(p, form) {
+  animation-delay: 220ms;
+}
+
+.reveal-section.is-visible > div > a,
+.reveal-section.is-visible > div > blockquote {
+  animation-delay: 300ms;
+}
+
+.reveal-section.is-visible article,
+.reveal-section.is-visible a.group {
+  animation: section-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-section.is-visible article:nth-child(2),
+.reveal-section.is-visible a.group:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.reveal-section.is-visible article:nth-child(3),
+.reveal-section.is-visible a.group:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.reveal-section.is-visible article:nth-child(4),
+.reveal-section.is-visible a.group:nth-child(4) {
+  animation-delay: 260ms;
+}
+
+.reveal-section.is-visible article:nth-child(5),
+.reveal-section.is-visible a.group:nth-child(5) {
+  animation-delay: 340ms;
+}
+
+.reveal-section:first-child img {
+  transform: translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0) scale(1.06);
+  animation: hero-image-drift 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section article,
+.reveal-section a.group {
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease;
+}
+
+.reveal-section article:hover,
+.reveal-section a.group:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgb(29 33 28 / 10%);
+}
+
+.featured-villas article:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.reveal-section img {
+  transition:
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 500ms ease;
+}
+
+.reveal-section article:hover img,
+.reveal-section a.group:hover img {
+  transform: scale(1.06);
+}
+
+.reveal-section button,
+.reveal-section a:not(.group),
+header a,
+footer a {
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+.reveal-section button:hover,
+.reveal-section a:not(.group):hover {
+  transform: translateY(-2px);
+}
+
+.reveal-section:nth-child(4) > div > div:first-child {
+  animation: soft-float 5s ease-in-out 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
