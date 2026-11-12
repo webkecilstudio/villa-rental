@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { addIcons, OhVueIcon } from 'oh-vue-icons'
 import {
   HiArrowNarrowRight,
+  HiArrowLeft,
   HiArrowRight,
   HiCalendar,
   HiCamera,
@@ -33,6 +34,7 @@ import './style.css'
 
 addIcons(
   HiArrowNarrowRight,
+  HiArrowLeft,
   HiArrowRight,
   HiCalendar,
   HiCamera,

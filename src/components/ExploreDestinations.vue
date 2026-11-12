@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import { localImage } from '@/utils/image'
-
-const destinations = [
-  { name: 'Ubud', note: 'Jungle & soul', image: 'photo-1537996194471-e657df975ab4.jpg' },
-  { name: 'Canggu', note: 'Surf & slow days', image: 'photo-1539367628448-4bc5c9d171c8.jpg' },
-  { name: 'Seminyak', note: 'Style & sunsets', image: 'photo-1537225228614-56cc3556d7ed.jpg' },
-  { name: 'Uluwatu', note: 'Cliffs & ocean', image: 'photo-1516690561799-46d8f74f9abf.jpg' },
-  { name: 'Nusa Dua', note: 'Calm & considered', image: 'photo-1540541338287-41700207dee6.jpg' },
-]
+import { destinations } from '@/data/catalog'
+import { sitePath } from '@/utils/routing'
 </script>
 
 <template>
@@ -15,8 +9,8 @@ const destinations = [
     <div class="mx-auto max-w-[1440px]">
       <div class="mb-10 flex items-end justify-between">
         <div>
-          <p class="eyebrow mb-3 text-coral">02 / Find your island</p>
-          <h2 class="font-display text-4xl tracking-[-0.05em] sm:text-5xl">Explore destinations</h2>
+          <p class="eyebrow mb-3 text-coral">02 / Find your island · Temukan Bali</p>
+          <h2 class="font-display text-4xl tracking-[-0.05em] sm:text-5xl">Jelajahi destinasi</h2>
         </div>
         <span class="hidden font-display text-6xl italic text-paper/20 sm:block">Bali.</span>
       </div>
@@ -24,7 +18,7 @@ const destinations = [
         <a
           v-for="destination in destinations"
           :key="destination.name"
-          href="#"
+          :href="sitePath(`/destination/${destination.slug}`)"
           class="group"
           :class="{ 'col-span-2 lg:col-span-1': destination.name === 'Ubud' }"
           ><div class="relative aspect-[0.76] overflow-hidden bg-moss">

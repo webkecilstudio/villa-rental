@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import AnnouncementBar from './components/AnnouncementBar.vue'
 import AboutOurVillas from './components/AboutOurVillas.vue'
 import BookingSearch from './components/BookingSearch.vue'
@@ -13,11 +13,24 @@ import NewsletterSection from './components/NewsletterSection.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import GuestTestimonials from './components/GuestTestimonials.vue'
 import WhyChooseUs from './components/WhyChooseUs.vue'
+import VillaDetailPage from './components/VillaDetailPage.vue'
+import DestinationDetailPage from './components/DestinationDetailPage.vue'
+import { currentPath } from './utils/routing'
 
 let observer: IntersectionObserver | undefined
 let removeHeroMotion: (() => void) | undefined
+const path = ref(currentPath())
+const isVillaPage = computed(() => path.value.startsWith('/villa/'))
+const isDestinationPage = computed(() => path.value.startsWith('/destination/'))
+const detailSlug = computed(() => path.value.split('/').filter(Boolean)[1] ?? '')
+
+const updatePath = () => {
+  path.value = currentPath()
+}
 
 onMounted(() => {
+  window.addEventListener('popstate', updatePath)
+  if (isVillaPage.value || isDestinationPage.value) return
   const sections = Array.from(document.querySelectorAll<HTMLElement>('main > section'))
 
   observer = new IntersectionObserver(
@@ -65,10 +78,20 @@ onMounted(() => {
 onUnmounted(() => {
   observer?.disconnect()
   removeHeroMotion?.()
+  window.removeEventListener('popstate', updatePath)
 })
 </script>
 
 <template>
+  <template v-if="isVillaPage">
+    <SiteNavbar />
+    <VillaDetailPage :slug="detailSlug" />
+  </template>
+  <template v-else-if="isDestinationPage">
+    <SiteNavbar />
+    <DestinationDetailPage :slug="detailSlug" />
+  </template>
+  <template v-else>
   <AnnouncementBar />
   <SiteNavbar />
   <main>
@@ -84,4 +107,5 @@ onUnmounted(() => {
     <NewsletterSection />
   </main>
   <SiteFooter />
+  </template>
 </template>
